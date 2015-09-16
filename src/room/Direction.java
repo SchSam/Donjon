@@ -6,8 +6,8 @@ public enum Direction {
 	go_south(new String[]{"go south","go north"}),
 	go_east(new String[]{"go east","go west"}),
 	go_west(new String[]{"go west","go east"}),
-	go_carpet(new String[]{"go to the hatch above","go to the hatch below"}),
-	go_hatch(new String[]{"go to the hatch below","go to the hatch above"});
+	go_hatchUp(new String[]{"go to the hatch above","go to the hatch below"}),
+	go_hatchDown(new String[]{"go to the hatch below","go to the hatch above"});
 	
 	private String[] direction;
 

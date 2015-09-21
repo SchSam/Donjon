@@ -3,7 +3,14 @@ package room;
 import java.util.ArrayList;
 import java.util.Random;
 
+import Armor.ArmorFactory;
+import Effet.EffetFactory;
+import Monster.MonsterFactory;
+import Player.WeaponFactory;
+import Potion.PotionFactory;
+
 import dungeon.Dungeon;
+import dungeon.Parametre;
 
 public class RoomwithArmoire extends Room{
 	
@@ -21,20 +28,44 @@ public class RoomwithArmoire extends Room{
 	
 	public boolean interpretCommand(String command, Dungeon dungeon) {
 		if(command.equals("look into wardrobe")){
-			int r=new Random().nextInt(5);
+			int r=new Random().nextInt(8);
+			r=3;
 			// new door
-			if(r==0){
+			switch(r){
+			case 0:
 				setDoors("passer par l'armoire", null);
 				System.out.println("There is a hidden door in this wardrobe.");
-			}else if(r==1){
+				break;
+			case 1:
 				System.out.println("It's empty.");
-			}else if(r==2){
+				break;
+			case 2:
 				System.out.println("It is a trap !");
-			}else if(r==3){
-				System.out.println("There is a pistol in this wardrobe.");
-			}else if(r==4){
+				break;
+			case 3:
+				System.out.println("There is a weapons in this wardrobe.");
+				dungeon.getPlayer().addWeapon(WeaponFactory.getWeapon(Parametre.numEtage));
+				break;
+			case 4:
+				System.out.println("There is a potions in this wardrobe.");
+				dungeon.getPlayer().addPotion(PotionFactory.getPotion(Parametre.numEtage));
+				break;
+			case 5:
+				System.out.println("There is a effect in this wardrobe.");
+				dungeon.getPlayer().addEffet(EffetFactory.getEffet(Parametre.numEtage));
+				break;
+			case 6:
+				System.out.println("There is a armor in this wardrobe.");
+				dungeon.getPlayer().addArmor(ArmorFactory.getArmor(Parametre.numEtage));
+				break;
+			case 7:
 				System.out.println("There is a monster in this wardrobe !");
+				MonsterFactory.getEffet(Parametre.numEtage);
+				break;
+			default:
+				break;
 			}
+				
 			armoire=false;
 		}
 		return super.interpretCommand(command, dungeon);

@@ -8,10 +8,18 @@ public class Armor {
 	protected double reductionPourcentDmg;
 	protected String name;
 	
+	
+	public Armor(String name, int reductiondmg, double reductionPourcentDmg) {
+		this.reductiondmg = reductiondmg;
+		this.reductionPourcentDmg = reductionPourcentDmg;
+		this.name = name;
+	}
+
 	public int getDommage(Monster monster) {
 		double dmg = monster.getForce();
-		dmg = dmg - dmg*reductionPourcentDmg;
 		dmg = dmg - reductiondmg;
+		dmg = dmg - dmg*reductionPourcentDmg;
+		
 		
 		if(dmg<0)
 			return 0;

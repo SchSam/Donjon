@@ -5,8 +5,8 @@ import Player.Weapon;
 
 public class Slime extends Monster {
 
-	public Slime(int life, int force, int name) {
-		super(life, force, name);
+	public Slime(String name,int life, int force) {
+		super(name,life, force);
 		typeMonster="slime";
 	}
 	

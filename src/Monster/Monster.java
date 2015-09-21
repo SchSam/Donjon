@@ -3,15 +3,15 @@ package Monster;
 import Player.Player;
 import Player.Weapon;
 
-public abstract class Monster {
+public class Monster {
 	
 	protected int life;
 	protected int force;
-	protected int name;
+	protected String name;
 	protected String typeMonster;
 	
 	
-	public Monster(int life, int force, int name) {
+	public Monster(String name,int life, int force) {
 		this.life = life;
 		this.force = force;
 		this.name = name;
@@ -49,10 +49,10 @@ public abstract class Monster {
 	public void setForce(int force) {
 		this.force = force;
 	}
-	public int getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	

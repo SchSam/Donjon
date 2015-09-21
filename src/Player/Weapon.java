@@ -2,9 +2,7 @@ package Player;
 
 import Monster.Monster;
 
-public enum Weapon {
-	
-	shutgun("shutgun", 10, "mun shutgun", 15, "firearm");
+public class Weapon {
 
 	private String name;
 	
@@ -63,7 +61,7 @@ public enum Weapon {
 	}
 	
 
-	public String tire(Monster m){
+	public String attack(Monster m){
 		if(typeAmmo.equals("None")){
 			return m.takeDommage(this);
 		}else if(nbAmmo>0){
@@ -71,6 +69,15 @@ public enum Weapon {
 			return m.takeDommage(this);
 		}
 		return "votre "+name+" n'as plus de "+typeAmmo;
+	}
+
+	public String getDescription() {
+		String s="name : "+ name + "\n";
+		if(!typeAmmo.equals("None")){
+			s+="nb ammo : " + nbAmmo + "\ntype ammo : " + typeAmmo + "\n";
+		}
+		s+="power : " + power + "\ntypeWeapon : " + typeWeapon+"\n";
+		return s;
 	}
 	
 }

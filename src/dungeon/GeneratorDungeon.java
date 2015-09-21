@@ -44,10 +44,21 @@ public class GeneratorDungeon {
 	}
 
 	public static Room createRoom(Room oldroom, String direction) {
+		if(Parametre.nbSalleVisite>=4 && new Random().nextInt(3)==0){
+			System.out.println("Voici la sortie de cette etage.");
+			return genereNewStage();
+		}
 		Parametre.nbSalleVisite++;
 		Room room=createRoom(oldroom);
 		room.setDoors(Direction.getContraire(direction), oldroom);
 		return room;
+	}
+
+	public static Room genereNewStage() {
+		Parametre.nbSalleVisite=1;
+		Parametre.numEtage++;
+		System.out.println("Vous etes maintenant aux "+Parametre.numEtage+" etage!");
+		return createRoom();
 	}
 	
 }

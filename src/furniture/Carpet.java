@@ -32,7 +32,7 @@ public class Carpet extends Furniture {
 				s="There is a hidden door under this carpet";
 				break;
 			case 1:
-				s="il y a rien endessous";
+				s="there is nothing under this carpet";
 				break;
 			case 2:
 				s="It is a trap !";

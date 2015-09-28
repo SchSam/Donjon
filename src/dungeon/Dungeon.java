@@ -16,19 +16,20 @@ public class Dungeon {
 	public void initDungeon(){
 		player=new Player(100);
 		Parametre.numEtage=0;
-		currentRoom = GeneratorDungeon.genereNewStage();
+		this.enterInRoom(GeneratorDungeon.genereNewStage());
 	}
 	
 	public Room getCurrentRoom() {
 		return currentRoom;
 	}
 	
-	public void setCurrentRoom(Room currentRoom) {
+	public void enterInRoom(Room room) {
 		player.agiteffets();
-		this.currentRoom = currentRoom;
+		this.currentRoom = room;
+		System.out.println(currentRoom.enterTheRoom(this));
 	}
 
-	public boolean interpretCommand(String command) {
+	public void interpretCommand(String command) {
 		switch(command){
 			case"help":
 				System.out.println(">description");
@@ -39,25 +40,25 @@ public class Dungeon {
 				System.out.println(">use {num potions}");
 				System.out.println(">equipe {num armors}");
 				System.out.println(">state of health");
-				return false;
+				return;
 			case"description":
 				System.out.println(currentRoom.getDescription());
-				return false;
+				return;
 			case"see weapons":
 				player.getWeaponsDescription();
-				return false;
+				return;
 			case"see armors":
 				player.getArmorDescription();
-				return false;
+				return;
 			case"see effets":
 				player.getEffetDescription();
-				return false;
+				return;
 			case"see potions":
 				player.getPotionDescription();
-				return false;
+				return;
 			case"state of health":
 				System.out.println(player.getEtat());
-				return false;
+				return;
 		}
 		
 		String[] cmd=command.split(" ");
@@ -66,7 +67,8 @@ public class Dungeon {
 			
 			try{
 				int w=Integer.parseInt(cmd[1]);
-				System.out.println(player.equipe(w-1));
+				if(w>0)
+					System.out.println(player.equipe(w-1));
 			}catch(NumberFormatException e){
 				System.out.println("equipe {num armor}");
 			}
@@ -74,12 +76,14 @@ public class Dungeon {
 		}else if(cmd.length==2 && cmd[0].equals("use")){
 			try{
 				int p=Integer.parseInt(cmd[1]);
-				System.out.println(player.usePotion(p-1));
+				if(p>0)
+					System.out.println(player.usePotion(p-1));
 			}catch(NumberFormatException e){
-				System.out.println("equipe {num potion}");
+				System.out.println("use {num potion}");
 			}
+		}else{
+			currentRoom.interpretCommand(command, this);
 		}
-		return currentRoom.interpretCommand(command, this);
 	}
 
 	public static void main(String[] args) {
@@ -92,11 +96,8 @@ public class Dungeon {
 		initDungeon();
 		String line ="";
 		do {
-			System.out.println(getCurrentRoom().getDescription());
-			do{
-				line = scanner.nextLine();
-			}while(!interpretCommand(line));
-			
+			line = scanner.nextLine();
+			interpretCommand(line);
 		} while (!player.isDead());
 	}
 

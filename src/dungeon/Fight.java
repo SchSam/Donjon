@@ -33,7 +33,7 @@ public class Fight {
 			case"see weapons":
 				player.getWeaponsDescription();
 				break;
-			case"360 no scope get Rekt bitch":
+			case"360 no scope get rekt bitch":
 				monster.setLife(0);
 				break;
 			case"see effets":

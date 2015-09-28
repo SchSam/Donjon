@@ -41,6 +41,7 @@ public class Player {
 		this.armor = armor;
 	}
 	public void addWeapon(Weapon w) {
+		System.out.println(w.getDescription());
 		weapons.add(w);
 	}
 	public ArrayList<Weapon> getWeapons() {
@@ -55,6 +56,7 @@ public class Player {
 		return effets;
 	}
 	public void addEffet(Effet e) {
+		System.out.println(e.getDescription());
 		effets.add(e);
 		// agit une premiere fois a l'ajout
 		e.agit(this);
@@ -93,6 +95,7 @@ public class Player {
 		return potions;
 	}
 	public void addPotion(Potion p) {
+		System.out.println(p.getDescription());
 		potions.add(p);
 	}
 
@@ -101,6 +104,7 @@ public class Player {
 	}
 	
 	public void addArmor(Armor a) {
+		System.out.println(a.getDescription());
 		armors.add(a);
 	}
 	public void getDommage(Monster monster) {

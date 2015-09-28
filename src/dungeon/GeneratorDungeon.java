@@ -7,17 +7,31 @@ import furniture.FurnitureFactory;
 
 import room.Direction;
 import room.Room;
+import room.RoomFactory;
 
 public class GeneratorDungeon {
 	
-	
+	/**
+	 * create a random room 
+	 * @return room
+	 */
 	public static Room createRoom(){
 		Room room=new Room();
 		initFurnitures(room);
 		initDoors(room);
 		return room;
 	}
-
+	
+	public static Room createRoom(Room oldroom){
+		Room room=RoomFactory.getRoom(oldroom);
+		initFurnitures(room);
+		initDoors(room);
+		return room;		
+	}
+	/** init furnitures in room
+	 * 
+	 * @param room
+	 */
 	private static void initFurnitures(Room room) {
 		
 		Random r = new Random();
@@ -31,12 +45,21 @@ public class GeneratorDungeon {
 		
 	}
 	
+	/** init doors in room
+	 * 
+	 * @param room
+	 */
 	private static void initDoors(Room room) {
 		
 		Random r = new Random();
 		int nbdoor = r.nextInt(Direction.values().length-2)+2;
 		
+		// the room can genere 2 door equals 
 		for(int i = 0 ; i < nbdoor ;i++)
+			room.setDoors(Direction.getDirection(r.nextInt(Direction.values().length)), null);
+		
+		// 2 doors mini
+		while(room.getDoors().size()<2)
 			room.setDoors(Direction.getDirection(r.nextInt(Direction.values().length)), null);
 		
 	}
@@ -47,7 +70,7 @@ public class GeneratorDungeon {
 			return genereNewStage();
 		}
 		Parametre.nbSalleVisite++;
-		Room room=createRoom();
+		Room room=createRoom(oldroom);
 		room.setDoors(Direction.getContraire(direction), oldroom);
 		return room;
 	}

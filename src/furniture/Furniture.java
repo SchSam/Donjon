@@ -5,7 +5,7 @@ import dungeon.Dungeon;
 public class Furniture {
 
 	private String cmd;
-	protected String name;
+	private String name;
 	private String description;
 	
 	public Furniture(String cmd, String name, String description) {

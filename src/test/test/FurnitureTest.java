@@ -15,11 +15,15 @@ public class FurnitureTest {
 	private Furniture wardrobe;
 	private Furniture carpet;
 	private Furniture test;
+	private Furniture wardrobeOpen;
+	private Furniture carpetOpen;
 	
 	@Before
 	public void initFurnitureTest() {
 		wardrobe = new Wardrobe();
+		wardrobeOpen = new Wardrobe(true);
 		carpet = new Carpet();
+		carpetOpen = new Carpet(true);
 		test = new Furniture("cmd test", "test", "descri test");
 	}
 
@@ -32,6 +36,9 @@ public class FurnitureTest {
 		Assert.assertEquals(wardrobe.getName(),"wardrobe");
 		Assert.assertEquals(carpet.getName(),"carpet");
 		Assert.assertEquals(test.getName(),"test");
+		
+		Assert.assertEquals(wardrobeOpen.agit(new Dungeon()),"this is a wardrobe");
+		Assert.assertEquals(carpetOpen.agit(new Dungeon()),"this is a carpet");
 		
 		Assert.assertEquals(test.agit(new Dungeon()),"descri test");
 	}

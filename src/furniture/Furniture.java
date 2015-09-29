@@ -14,14 +14,25 @@ public class Furniture {
 		this.description = description;
 	}
 
+	/**
+	 * @return list command with furniture
+	 */
 	public String getCmd() {
 		return cmd;
 	}
 	
+	/**
+	 * @return name of furniture
+	 */
 	public String getName(){
 		return name;
 	}
 	
+	/**
+	 * function that manages interaction with the furniture
+	 * @param dungeon
+	 * @return interraction with furniture
+	 */
 	public String agit(Dungeon dungeon){
 		return description;
 	}

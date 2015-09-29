@@ -2,9 +2,21 @@ package armor;
 
 import java.util.Random;
 
+/**
+ * The ArmorFactory class let the game generates different types of armors.
+ * 
+ * @author bricout
+ *
+ */
 public class ArmorFactory {
 	
-	
+	/**
+	 * Creates a random armor whose stats depends of the level specified.
+	 * 
+	 * @param level the level of the current dungeon.
+	 *
+	 * @return a randomly created armor.
+	 */
 	public static Armor getArmor(int level){
 		
 		int r=new Random().nextInt(2); 

@@ -2,8 +2,21 @@ package furniture;
 
 import java.util.Random;
 
+/**
+ * The FurnitureFactory class let the game generates different types of furnitures.
+ * 
+ * @author bricout
+ *
+ */
+
 public class FurnitureFactory {
-	
+	/**
+	 * Creates a random furniture whose stats depends of the level specified.
+	 * 
+	 * @param level the level of the current dungeon.
+	 *
+	 * @return a randomly created furniture.
+	 */
 
 	public static Furniture getFurniture(){
 		

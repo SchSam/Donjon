@@ -1,7 +1,12 @@
 package room;
 
 import java.util.Random;
-
+/**
+ * The RoomFactory class let the game generates different types of rooms.
+ * 
+ * @author bricout
+ *
+ */
 public class RoomFactory {
 
 	public static Room getRoom(Room oldRoom) {

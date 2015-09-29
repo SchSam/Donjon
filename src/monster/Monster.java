@@ -20,6 +20,11 @@ public class Monster {
 		this.typeMonster = "None";
 	}
 	
+	/**
+	 * calculates the damages that the weapon inflicts to the monster
+	 * @param weapon
+	 * @return description of the impact of the blow on the monster
+	 */
 	public String takeDommage(Weapon weapon){
 		
 		String s=name + " take "+weapon.getPower()+" dmg !\n";
@@ -38,6 +43,12 @@ public class Monster {
 	
 	}
 	
+	/**
+	 * the monster action
+	 * @param player
+	 * @return description monster action
+	 */
+	
 	public String agit(Player player){
 		player.getDommage(this);
 		return "le "+ name +" vous attaque";
@@ -46,38 +57,41 @@ public class Monster {
 	public int getLife() {
 		return life;
 	}
-	public void setLife(int life) {
-		this.life = life;
-	}
+	
 	public int getForce() {
 		return force;
 	}
-	public void setForce(int force) {
-		this.force = force;
-	}
+	
 	public String getName() {
 		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	
 	public String getTypeMonster() {
 		return typeMonster;
 	}
 
+	/**
+	 * @return 
+	 */
 	public String getEtat() {
 		int e=life*3/maxlife;
 		if(e>=2){
 			return "le "+name+" est en plein forme";
 		}else if(e==1){
-			return "le "+name+" est commence a faiblir";
+			return "le "+name+" commence a faiblir";
 		}
 		return "le "+name+" est faible";
 	}
 
+	/**
+	 * @return if the monster is dead
+	 */
 	public boolean isDead() {
 		return life<=0;
+	}
+
+	public void setLife(int life) {
+		this.life = life;
 	}
 	
 }

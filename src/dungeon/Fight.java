@@ -18,6 +18,10 @@ public class Fight {
 		this.monster=m;
 	}
 	
+	/**
+	 * the command interpreter
+	 * @param command
+	 */
 	public void interpretCommand(String command) {
 		switch(command){
 			case"help":
@@ -31,16 +35,16 @@ public class Fight {
 				System.out.println(getDescription());
 				break;
 			case"see weapons":
-				player.getWeaponsDescription();
+				System.out.println(player.getWeaponsDescription());
 				break;
 			case"360 no scope get rekt bitch":
 				monster.setLife(0);
 				break;
 			case"see effets":
-				player.getEffetDescription();
+				System.out.println(player.getEffetDescription());
 				break;
 			case"wait":
-				monster.agit(player);
+				System.out.println(monster.agit(player));
 				break;
 			case"state of health":
 				System.out.println(player.getEtat());
@@ -59,23 +63,33 @@ public class Fight {
 		}
 	}
 	
-	private String getDescription() {
-		String s = "vs etes en combat contre un " + monster.getName() + "\n";
+	/**
+	 * 
+	 * @return description fight
+	 */
+	public String getDescription() {
+		String s = "you're fighting against a " + monster.getName() + "\n";
 		s+=monster.getEtat();
 		return s;
 	}
 
+	/**
+	 * loop that manages the user command
+	 */
 	public void start() {
 		String line ="";
-		System.out.println("un "+monster.getName()  +" apparait (bili bili bili)");
+		System.out.println("a "+monster.getName()  +" appears (bili bili bili)");
 		do {
 			line = scanner.nextLine();
 			interpretCommand(line);
 		} while (!fightIsFinished());
-		System.out.println("Vous avez survecu au "+monster.getName());
+		System.out.println("You have survived the "+monster.getName());
 	}
 
-	private boolean fightIsFinished() {
+	/**
+	 * @return if fight is finished
+	 */
+	public boolean fightIsFinished() {
 		return monster.isDead() || player.isDead();
 	}
 }

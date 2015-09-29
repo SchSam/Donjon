@@ -30,19 +30,19 @@ public class ArmorTest {
 	
 	@Test
 	public void getDommageTest(){
-		int d =armor.getDommage(monster);
+		int d =armor.getDamage(monster);
 		// 5 - 3 - (5-3) * 0.5 = 1
 		Assert.assertEquals(d,1);
 		
-		d =armorslime.getDommage(monster);
+		d =armorslime.getDamage(monster);
 		// 5 - 4 - (5-4) * 0.5 = 0 (round)
 		Assert.assertEquals(d,0);
 		
-		d =armor.getDommage(slime);
+		d =armor.getDamage(slime);
 		// 20 - 3 - (20-3) * 0.5 = 8
 		Assert.assertEquals(d,8);
 		
-		d =armorslime.getDommage(slime);
+		d =armorslime.getDamage(slime);
 		// 0 effect armor
 		Assert.assertEquals(d,0);
 	}

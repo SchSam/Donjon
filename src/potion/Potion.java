@@ -1,14 +1,14 @@
 package potion;
 
-import effet.Effet;
+import effect.Effect;
 import player.Player;
 
 public class Potion {
 
-	private Effet effet;
+	private Effect effet;
 	private String name;
 	
-	public Potion(Effet effet,String name) {
+	public Potion(Effect effet,String name) {
 		this.effet = effet;
 		this.name = name;
 	}

@@ -11,8 +11,7 @@ import armor.ArmorFactory;
 import dungeon.Dungeon;
 import dungeon.Fight;
 import dungeon.GeneratorDungeon;
-import dungeon.Parametre;
-import effet.EffetFactory;
+import effect.EffectFactory;
 
 public class Wardrobe extends Furniture {
 
@@ -23,11 +22,16 @@ public class Wardrobe extends Furniture {
 		isOpen=false;
 	}
 	
+	/**
+	 * Wardrobe is open or not ?
+	 * @param isOpen
+	 */
 	public Wardrobe(boolean isOpen) {
 		super("look into wardrobe", "wardrobe", "this is a wardrobe");
 		this.isOpen=isOpen;
 	}
-
+	
+	@Override
 	public String agit(Dungeon dungeon){
 		if(isOpen)
 			return super.agit(dungeon);
@@ -48,27 +52,27 @@ public class Wardrobe extends Furniture {
 				break;
 			case 2:
 				s="It is a trap !";
-				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(Parametre.numEtage*3));
+				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(GeneratorDungeon.numEtage*3));
 				break;
 			case 3:
 				s="There is a weapons in this wardrobe";
-				dungeon.getPlayer().addWeapon(WeaponFactory.getWeapon(Parametre.numEtage));
+				dungeon.getPlayer().addWeapon(WeaponFactory.getWeapon(GeneratorDungeon.numEtage));
 				break;
 			case 4:
 				s="There is a potions in this wardrobe";
-				dungeon.getPlayer().addPotion(PotionFactory.getPotion(Parametre.numEtage));
+				dungeon.getPlayer().addPotion(PotionFactory.getPotion(GeneratorDungeon.numEtage));
 				break;
 			case 5:
 				s="There is a effect in this wardrobe";
-				dungeon.getPlayer().addEffet(EffetFactory.getEffet(Parametre.numEtage));
+				dungeon.getPlayer().addEffet(EffectFactory.getEffet(GeneratorDungeon.numEtage));
 				break;
 			case 6:
 				s="There is a armor in this wardrobe";
-				dungeon.getPlayer().addArmor(ArmorFactory.getArmor(Parametre.numEtage));
+				dungeon.getPlayer().addArmor(ArmorFactory.getArmor(GeneratorDungeon.numEtage));
 				break;
 			case 7:
 				s="There is a monster in this wardrobe";
-				Monster monster=MonsterFactory.getMonster(Parametre.numEtage);
+				Monster monster=MonsterFactory.getMonster(GeneratorDungeon.numEtage);
 				new Fight(dungeon.getPlayer(),monster).start();
 				break;
 		}

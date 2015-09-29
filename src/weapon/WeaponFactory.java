@@ -2,7 +2,22 @@ package weapon;
 
 import java.util.Random;
 
+/**
+ * The WeaponFactory class let the game generates different types of weapons.
+ * 
+ * @author bricout
+ *
+ */
+
 public class WeaponFactory {
+	
+	/**
+	 * Creates a random weapon whose stats depends of the level specified.
+	 * 
+	 * @param level the level of the current dungeon.
+	 *
+	 * @return a randomly created weapon.
+	 */
 	
 	public static Weapon punch=new Weapon("punch", 0, "None", 5, "punch");
 

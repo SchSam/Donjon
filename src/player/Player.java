@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import armor.Armor;
 
-import effet.Effet;
+import effect.Effect;
 
 import monster.Monster;
 
@@ -20,7 +20,7 @@ public class Player {
 	private Armor armor;
 	private ArrayList<Armor> armors=new ArrayList<Armor>();
 	private ArrayList<Weapon> weapons=new ArrayList<Weapon>();
-	private ArrayList<Effet> effets=new ArrayList<Effet>();
+	private ArrayList<Effect> effets=new ArrayList<Effect>();
 	private ArrayList<Potion> potions=new ArrayList<Potion>();
 	
 	public Player(int life) {
@@ -37,9 +37,6 @@ public class Player {
 	public Armor getArmor() {
 		return armor;
 	}
-	public void setArmor(Armor armor) {
-		this.armor = armor;
-	}
 	public void addWeapon(Weapon w) {
 		System.out.println(w.getDescription());
 		weapons.add(w);
@@ -48,14 +45,14 @@ public class Player {
 		return weapons;
 	}
 	public Weapon getWeapons(int w) {
-		if(weapons.size()<w || w>=0)
+		if(weapons.size()<w || w<=0)
 			return WeaponFactory.punch;
 		return weapons.get(w-1);
 	}
-	public ArrayList<Effet> getEffets() {
+	public ArrayList<Effect> getEffets() {
 		return effets;
 	}
-	public void addEffet(Effet e) {
+	public void addEffet(Effect e) {
 		System.out.println(e.getDescription());
 		effets.add(e);
 		// agit une premiere fois a l'ajout
@@ -67,7 +64,7 @@ public class Player {
 			effets.get(i).agit(this);
 	}
 	
-	public void removeEffet(Effet effet) {
+	public void removeEffect(Effect effet) {
 		effets.remove(effet);
 	}
 	
@@ -76,18 +73,11 @@ public class Player {
 	}
 	
 
-	public void removeTypeEffet(Class<? extends Effet> typeEffet) {
+	public void removeTypeEffect(Class<? extends Effect> typeEffet) {
 		
 		for(int i=effets.size()-1;i>=0;i--)
 			if(typeEffet.isInstance(effets.get(i)))
 				effets.remove(effets.get(i));
-		
-	}
-	
-	public void actionEffet(){
-		
-		for(int i=effets.size()-1;i>=0;i--)
-			effets.get(i).agit(this);
 		
 	}
 	
@@ -112,62 +102,57 @@ public class Player {
 		if(armor==null)
 			life-=monster.getForce();
 		else
-			life-=armor.getDommage(monster);
+			life-=armor.getDamage(monster);
 		
 	}
 	
 	public boolean isDead(){
 		return life<=0;
 	}
+	
 	public String getWeaponsDescription() {
-		String s="voici mes armes : ";
+		String s="My weapons :  \n";
 		int i=0;
 		for(Weapon w:weapons){
 			i++;
-			s+=i+") "+w.getDescription();
+			s+=i+") "+w.getDescription()+"\n";
 		}
 		return s;
 	}
 	
 	public String getEffetDescription() {
-		String s="voici mes effet : ";
+		String s="My effects : \n";
 		int i=0;
-		for(Effet e:effets){
+		for(Effect e:effets){
 			i++;
-			s+=i+") "+e.getDescription();
+			s+=i+") "+e.getDescription()+"\n";
 		}
 		return s;
 		
 	}
 	
 	public String getPotionDescription() {
-		String s="voici mes Potions : ";
+		String s="My potions : \n";
 		int i=0;
 		for(Potion p:potions){
 			i++;
-			s+=i+") "+p.getDescription();
+			s+=i+") "+p.getDescription()+"\n";
 		}
 		return s;
 	}
 	
 	public String getArmorDescription() {
-		String s="voici mes Armors : ";
+		String s="My armors : \n";
 		int i=0;
 		for(Armor a:armors){
 			i++;
 			if(a.equals(armor)){
-				s+=i+") (equipe)"+a.getDescription();
+				s+=i+") (equipe)"+a.getDescription()+"\n";
 			}else{
-				s+=i+") "+a.getDescription();
+				s+=i+") "+a.getDescription()+"\n";
 			}
 		}
 		return s;
-	}
-	public int getMaxlife() {
-		return maxlife;
-	}
-	public void setMaxlife(int maxlife) {
-		this.maxlife = maxlife;
 	}
 	
 	public String getEtat(){

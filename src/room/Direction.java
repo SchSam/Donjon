@@ -24,8 +24,8 @@ public enum Direction {
 	}
 	
 	public static String getContraire(String s){
-		if(s.equals("passer par l'armoire")){
-			return "passer par l'armoire";
+		if(s.equals("go to wardrobe")){
+			return "go to wardrobe";
 		}else if(s.equals("go to the hatch under Carpet")){
 			return Direction.go_hatchUp.getDirection();
 		}
@@ -34,7 +34,7 @@ public enum Direction {
 			if(d.getDirection().equals(s))
 				return d.getContraire();
 		
-		return null;
+		return s;
 		
 	}
 	

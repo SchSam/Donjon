@@ -18,14 +18,14 @@ public class RoomEnigma extends Room {
 		if(enigmeSolved)
 			return super.enterTheRoom(dungeon);
 		
-		String s="you enter in the room";
-		s+="a wild genius appears";
-		s+="hi i am lucas the genius";
+		String s="you enter in the room\n";
+		s+="a wild genius appears\n";
+		s+="hi i am lucas the genius\n";
 		
-		s+=enigma.getEnigma();
+		s+=enigma.getEnigma()+"\n";
 		
 		for(String c : enigma.getChoices()){
-			s+="> "+c;
+			s+="> "+c+"\n";
 		}
 		return s;
 	}

@@ -9,7 +9,6 @@ public class Enigma {
 	private String answer;
 	
 	public Enigma(String enigma, ArrayList<String> choices, String answer) {
-		super();
 		this.enigma = enigma;
 		this.choices = choices;
 		this.answer = answer;

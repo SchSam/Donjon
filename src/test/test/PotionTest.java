@@ -4,9 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import effet.Effet;
-import effet.EffetAntidote;
-import effet.EffetPoison;
+import effect.Effect;
+import effect.EffectAntidote;
+import effect.EffectPoison;
 import player.Player;
 import potion.Potion;
 import potion.PotionFactory;
@@ -20,8 +20,8 @@ public class PotionTest {
 	
 	@Before
 	public void initPotionTest() {
-		Effet effet = new EffetPoison(2,4);
-		Effet effet2 = new EffetAntidote(EffetPoison.class);
+		Effect effet = new EffectPoison(2,4);
+		Effect effet2 = new EffectAntidote(EffectPoison.class);
 		potion = new Potion(effet, "poison");
 		potion2 = new Potion(effet2, "antidote");
 		player=new Player(100);

@@ -3,7 +3,7 @@ package furniture;
 import java.util.Random;
 
 import dungeon.Dungeon;
-import dungeon.Parametre;
+import dungeon.GeneratorDungeon;
 
 public class Carpet extends Furniture {
 
@@ -14,11 +14,15 @@ public class Carpet extends Furniture {
 		isOpen=false;
 	}
 	
+	/**
+	 * carpet is open or not ?
+	 * @param isOpen
+	 */
 	public Carpet(boolean isOpen) {
 		super("look under carpet", "carpet", "this is a carpet");
 		this.isOpen=isOpen;
 	}
-
+	@Override
 	public String agit(Dungeon dungeon){
 		if(isOpen)
 			return super.agit(dungeon);
@@ -36,7 +40,7 @@ public class Carpet extends Furniture {
 				break;
 			case 2:
 				s="It is a trap !";
-				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(Parametre.numEtage*3));
+				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(GeneratorDungeon.numEtage*3));
 				break;
 		}
 		isOpen=true;

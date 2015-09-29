@@ -15,7 +15,7 @@ public class Dungeon {
 
 	public void initDungeon(){
 		player=new Player(100);
-		Parametre.numEtage=0;
+		GeneratorDungeon.numEtage=0;
 		this.enterInRoom(GeneratorDungeon.genereNewStage());
 	}
 	
@@ -45,16 +45,16 @@ public class Dungeon {
 				System.out.println(currentRoom.getDescription());
 				return;
 			case"see weapons":
-				player.getWeaponsDescription();
+				System.out.println(player.getWeaponsDescription());
 				return;
 			case"see armors":
-				player.getArmorDescription();
+				System.out.println(player.getArmorDescription());
 				return;
 			case"see effets":
-				player.getEffetDescription();
+				System.out.println(player.getEffetDescription());
 				return;
 			case"see potions":
-				player.getPotionDescription();
+				System.out.println(player.getPotionDescription());
 				return;
 			case"state of health":
 				System.out.println(player.getEtat());

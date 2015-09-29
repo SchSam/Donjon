@@ -46,7 +46,7 @@ public class WeaponTest {
 		Assert.assertTrue(weapon.attack(monster).contains("testmonstre take 20 dmg"));
 		Assert.assertEquals(monster.getLife(),100-20-20);
 		
-		Assert.assertEquals(weaponEmply.attack(monster),"your testgun has no mun left");
+		Assert.assertEquals(weaponEmply.attack(monster),"your testgun has no mun test left");
 		Assert.assertEquals(monster.getLife(),100-20-20);
 	}
 	

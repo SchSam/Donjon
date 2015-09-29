@@ -18,6 +18,7 @@ public class RoomTrap extends Room{
 		trapActivated=false;
 		System.out.println("you enter in a room");
 		System.out.println("this is a trap");
+		System.out.println("you lose few hp");
 		dungeon.getPlayer().setLife(dungeon.getPlayer().getLife() - 5);
 		return this.getDescription();
 	}

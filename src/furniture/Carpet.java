@@ -39,7 +39,8 @@ public class Carpet extends Furniture {
 				s="there is nothing under this carpet";
 				break;
 			case 2:
-				s="it is a trap !";
+				s="it is a trap !\n";
+				s+="you lose few hp";
 				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(GeneratorDungeon.numFloor*3));
 				break;
 		}

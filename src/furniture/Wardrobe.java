@@ -51,7 +51,8 @@ public class Wardrobe extends Furniture {
 				s="It's empty.";
 				break;
 			case 2:
-				s="It is a trap !";
+				s="It is a trap !\n";
+				s+="you lose few hp";
 				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(GeneratorDungeon.numFloor*3));
 				break;
 			case 3:

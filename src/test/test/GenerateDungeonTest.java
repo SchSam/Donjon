@@ -24,7 +24,7 @@ public class GenerateDungeonTest {
 			Assert.assertFalse(GeneratorDungeon.createRoom(new RoomMonster()) instanceof RoomMonster);
 			Room room = GeneratorDungeon.createRoom(new Room(),"go south");
 			System.out.println(room.getDoors().keySet());
-			GeneratorDungeon.nbSalleVisite=0;
+			GeneratorDungeon.nbVisitedRoom=0;
 			Assert.assertTrue(room.getDoors().keySet().contains("go north"));
 		}
 		

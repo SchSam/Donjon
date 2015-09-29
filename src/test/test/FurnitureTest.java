@@ -37,10 +37,10 @@ public class FurnitureTest {
 		Assert.assertEquals(carpet.getName(),"carpet");
 		Assert.assertEquals(test.getName(),"test");
 		
-		Assert.assertEquals(wardrobeOpen.agit(new Dungeon()),"this is a wardrobe");
-		Assert.assertEquals(carpetOpen.agit(new Dungeon()),"this is a carpet");
+		Assert.assertEquals(wardrobeOpen.interact(new Dungeon()),"this is a wardrobe");
+		Assert.assertEquals(carpetOpen.interact(new Dungeon()),"this is a carpet");
 		
-		Assert.assertEquals(test.agit(new Dungeon()),"descri test");
+		Assert.assertEquals(test.interact(new Dungeon()),"descri test");
 	}
 	
 	@Test

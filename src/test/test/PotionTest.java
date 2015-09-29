@@ -36,15 +36,15 @@ public class PotionTest {
 		Assert.assertEquals(player.getPotions().size(), 0);
 		
 		player.addPotion(potion);
-		Assert.assertEquals(player.usePotion(0),"potion n°1 use");
+		Assert.assertEquals(player.usePotion(0),"potion number 1 use");
 		Assert.assertEquals(player.getPotions().size(), 0);
-		Assert.assertEquals(player.getEffets().size(), 1);
+		Assert.assertEquals(player.getEffects().size(), 1);
 		Assert.assertEquals(player.getLife(), 98);
 		
 		player.addPotion(potion);
 		player.addPotion(potion2);
-		Assert.assertEquals(player.usePotion(1),"potion n°2 use");
-		Assert.assertEquals(player.getEffets().size(), 0);
+		Assert.assertEquals(player.usePotion(1),"potion number 2 use");
+		Assert.assertEquals(player.getEffects().size(), 0);
 	}
 	
 	@Test

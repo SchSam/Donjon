@@ -2,9 +2,20 @@ package room;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+/**
+ * The EnigmaFactory class let the game generates different types of enigmas.
+ * 
+ * @author bricout
+ *
+ */
 public class EgnimaFactory {
-
+	/**
+	 * Creates a random enigma whose stats depends of the level specified.
+	 * 
+	 * @param level the level of the current dungeon.
+	 *
+	 * @return a randomly created enigma.
+	 */
 	public static Enigma getEgnima() {
 			
 			int r=new Random().nextInt(2);

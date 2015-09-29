@@ -16,7 +16,7 @@ public abstract class Effect {
 	/**
 	 * Resolves the action of the effect on the player.
 	 */
-	public abstract void agit(Player player);
+	public abstract void execute(Player player);
 	
 	/**
 	 * @return the description of the effect

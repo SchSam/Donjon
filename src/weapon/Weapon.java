@@ -1,7 +1,11 @@
 package weapon;
 
 import monster.Monster;
-
+/**
+ * this is a weapon
+ * @author scharre
+ *
+ */
 public class Weapon {
 
 	private String name;
@@ -43,16 +47,25 @@ public class Weapon {
 		return typeWeapon;
 	}
 
+	/**
+	 * check the ammos and attacks the monster
+	 * @param monster
+	 * @return message
+	 */
 	public String attack(Monster m){
 		if(typeAmmo.equals("None")){
-			return m.takeDommage(this);
+			return m.takeDamage(this);
 		}else if(nbAmmo>0){
 			nbAmmo--;
-			return m.takeDommage(this);
+			return m.takeDamage(this);
 		}
-		return "votre "+name+" n'as plus de "+typeAmmo;
+		return "your "+name+" has no "+typeAmmo+" left";
 	}
 
+	/**
+	 * 
+	 * @return description of the weapon
+	 */
 	public String getDescription() {
 		String s="name : "+ name + "\n";
 		if(!typeAmmo.equals("None")){

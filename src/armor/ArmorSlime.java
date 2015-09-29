@@ -35,6 +35,6 @@ public class ArmorSlime extends Armor {
 	
 	@Override
 	public String getDescription(){
-		return "cette armure est insensible aux slimes\n"+super.getDescription();
+		return "this armor is invulnerable to slimes\n"+super.getDescription();
 	}
 }

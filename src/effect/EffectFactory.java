@@ -26,7 +26,7 @@ public class EffectFactory {
 			case 1:
 				return getEffectAntidoteEffectPoison();
 			case 2:
-				return getEffectAntidoteEffet();
+				return getEffectAntidoteEffect();
 		}
 		return null;
 	}
@@ -47,7 +47,7 @@ public class EffectFactory {
 	/**
 	 * @return effect antidote anti-effect
 	 */
-	public static Effect getEffectAntidoteEffet() {
+	public static Effect getEffectAntidoteEffect() {
 		return new EffectAntidote(Effect.class);
 	}
 }

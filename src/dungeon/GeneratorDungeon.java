@@ -11,12 +11,12 @@ import room.RoomFactory;
 
 public class GeneratorDungeon {
 	
-	public static int nbSalleVisite;
-	public static int numEtage;
+	public static int nbVisitedRoom;
+	public static int numFloor;
 
 	/**
 	 * create a random room 
-	 * @return room
+	 * @return new room
 	 */
 	public static Room createRoom(){
 		Room room=new Room();
@@ -25,14 +25,20 @@ public class GeneratorDungeon {
 		return room;
 	}
 	
+	/**
+	 * create a random room which consider the oldroom 
+	 * @param oldroom
+	 * @return new room
+	 */
 	public static Room createRoom(Room oldroom){
 		Room room=RoomFactory.getRoom(oldroom);
 		initFurnitures(room);
 		initDoors(room);
 		return room;		
 	}
-	/** init furnitures in room
-	 * 
+	
+	/**
+	 * init furnitures in room
 	 * @param room
 	 */
 	private static void initFurnitures(Room room) {
@@ -67,21 +73,31 @@ public class GeneratorDungeon {
 		
 	}
 
+	/**
+	 * create a room which consider the oldroom but with the direction we just came
+	 * @param oldroom
+	 * @param direction
+	 * @return new room
+	 */
 	public static Room createRoom(Room oldroom, String direction) {
-		if(nbSalleVisite>=4 && new Random().nextInt(3)==0){
-			System.out.println("Voici la sortie de cette etage.");
-			return genereNewStage();
+		if(nbVisitedRoom>=4 && new Random().nextInt(3)==0){
+			System.out.println("Here is the exit of this current floor.");
+			return generateNewStage();
 		}
-		nbSalleVisite++;
+		nbVisitedRoom++;
 		Room room=createRoom(oldroom);
-		room.setDoors(Direction.getContraire(direction), oldroom);
+		room.setDoors(Direction.getOpposite(direction), oldroom);
 		return room;
 	}
 
-	public static Room genereNewStage() {
-		nbSalleVisite=1;
-		numEtage++;
-		System.out.println("Vous etes maintenant aux "+numEtage+" etage!");
+	/**
+	 * function that makes you go to the next floor
+	 * @return new room
+	 */
+	public static Room generateNewStage() {
+		nbVisitedRoom=1;
+		numFloor++;
+		System.out.println("You are now at the floor number "+numFloor+" !");
 		return createRoom();
 	}
 	

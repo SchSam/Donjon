@@ -35,15 +35,15 @@ public class RoomTest {
 		Room room =new RoomEnigma(e);
 		dungeon.initDungeon();
 		dungeon.enterInRoom(room);
-		Assert.assertTrue(room.getCommandes().equals(choices));
+		Assert.assertTrue(room.getCommands().equals(choices));
 		Assert.assertEquals(dungeon.getPlayer().getLife(),100);
 		dungeon.interpretCommand("choice 3");
 		Assert.assertEquals(dungeon.getPlayer().getLife(),96);
 		dungeon.interpretCommand("choice 1");
 		Assert.assertEquals(dungeon.getPlayer().getLife(),96);
-		Assert.assertFalse(room.getCommandes().equals(choices));
+		Assert.assertFalse(room.getCommands().equals(choices));
 		dungeon.enterInRoom(room);
-		Assert.assertFalse(room.getCommandes().equals(choices));
+		Assert.assertFalse(room.getCommands().equals(choices));
 	}
 	
 	@Test
@@ -75,10 +75,10 @@ public class RoomTest {
 
 	@Test
 	public void directionTest(){
-		Assert.assertEquals(Direction.getContraire("go to wardrobe"),"go to wardrobe");
-		Assert.assertEquals(Direction.getContraire("go to the hatch under Carpet"),"go to the hatch above");
-		Assert.assertEquals(Direction.getContraire("go north"),"go south");
-		Assert.assertEquals(Direction.getContraire("go 1"),"go 1");
+		Assert.assertEquals(Direction.getOpposite("go to wardrobe"),"go to wardrobe");
+		Assert.assertEquals(Direction.getOpposite("go to the hatch under Carpet"),"go to the hatch above");
+		Assert.assertEquals(Direction.getOpposite("go north"),"go south");
+		Assert.assertEquals(Direction.getOpposite("go 1"),"go 1");
 	}
 	
 	@Test

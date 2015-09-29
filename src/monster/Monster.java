@@ -7,15 +7,15 @@ public class Monster {
 	
 	protected int life;
 	protected int maxlife;
-	protected int force;
+	protected int strength;
 	protected String name;
 	protected String typeMonster;
 	
 	
-	public Monster(String name,int life, int force) {
+	public Monster(String name,int life, int strength) {
 		this.life = life;
 		this.maxlife = life;
-		this.force = force;
+		this.strength = strength;
 		this.name = name;
 		this.typeMonster = "None";
 	}
@@ -25,41 +25,41 @@ public class Monster {
 	 * @param weapon
 	 * @return description of the impact of the blow on the monster
 	 */
-	public String takeDommage(Weapon weapon){
+	public String takeDamage(Weapon weapon){
 		
 		String s=name + " take "+weapon.getPower()+" dmg !\n";
 		
 		life-=weapon.getPower();
 		if(life<=0){
-			return s+"le "+name+" est mort :'(";
+			return s+"the "+name+" is dead :'(";
 		}
 		
 		if (weapon.getPower()*2>maxlife)
-			return s+"le "+ name + " a pris la sauce :)";
+			return s+"the "+ name + " got rekt :)";
 		else if (weapon.getPower()*4>maxlife)
-			return s+"le "+ name + " a pris quelque degat :|";
+			return s+"the "+ name + " took few dammages :|";
 		
-		return s+"le "+ name + " a presque pas subit de degat :(";
+		return s+"the "+ name + " almost took no dammage :(";
 	
 	}
 	
 	/**
-	 * the monster action
+	 * the monster makes his action (attack, wait...)
 	 * @param player
-	 * @return description monster action
+	 * @return action's description
 	 */
 	
-	public String agit(Player player){
-		player.getDommage(this);
-		return "le "+ name +" vous attaque";
+	public String action(Player player){
+		player.getDamage(this);
+		return "the "+ name +" attacks you";
 	}
 	
 	public int getLife() {
 		return life;
 	}
 	
-	public int getForce() {
-		return force;
+	public int getStrength() {
+		return strength;
 	}
 	
 	public String getName() {
@@ -71,16 +71,17 @@ public class Monster {
 	}
 
 	/**
-	 * @return 
+	 * message that contains the state of the monster
+	 * @return message
 	 */
-	public String getEtat() {
+	public String getState() {
 		int e=life*3/maxlife;
 		if(e>=2){
-			return "le "+name+" est en plein forme";
+			return "the "+name+" is in good shape";
 		}else if(e==1){
-			return "le "+name+" commence a faiblir";
+			return "the "+name+" start being weak";
 		}
-		return "le "+name+" est faible";
+		return "the "+name+" is weak";
 	}
 
 	/**

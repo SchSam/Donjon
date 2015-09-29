@@ -26,6 +26,11 @@ public class Enigma {
 		return answer;
 	}
 	
+	/**
+	 * check if the answer is good
+	 * @param answer
+	 * @return true or false
+	 */
 	public boolean userchoice(String s){
 		return s.equals(answer);
 	}

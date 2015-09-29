@@ -20,7 +20,7 @@ public class EffectPoison extends Effect {
 	}
 	
 	@Override
-	public void agit(Player player) {
+	public void execute(Player player) {
 		player.setLife(player.getLife()-dmg);
 		effectDuration--;
 		if(effectDuration<=0)
@@ -29,7 +29,7 @@ public class EffectPoison extends Effect {
 
 	@Override
 	public String getDescription() {
-		return "fait perdre quelques points de vie a chaque changement de salle (tour "+getEffectDuration()+")";
+		return "make you lose few hp everytime you move to another room (tour "+getEffectDuration()+")";
 	}
 
 }

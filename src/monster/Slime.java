@@ -11,17 +11,17 @@ public class Slime extends Monster {
 	}
 	
 	@Override
-	public String takeDommage(Weapon weapon) {
-		if(weapon.getTypeWeapon().equals("coupant"))
-			return "vous avez coupé le "+name+" en 2 mais il s'est reformé";
+	public String takeDamage(Weapon weapon) {
+		if(weapon.getTypeWeapon().equals("cutting"))
+			return "you have slain "+name+" but he merges";
 		
-		return super.takeDommage(weapon);
+		return super.takeDamage(weapon);
 		
 	}
 
 	@Override
-	public String agit(Player player) {
-		return super.agit(player);
+	public String action(Player player) {
+		return super.action(player);
 	}
 
 }

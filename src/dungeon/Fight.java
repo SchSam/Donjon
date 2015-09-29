@@ -19,7 +19,7 @@ public class Fight {
 	}
 	
 	/**
-	 * the command interpreter
+	 * interpret the command that the player write
 	 * @param command
 	 */
 	public void interpretCommand(String command) {
@@ -27,7 +27,7 @@ public class Fight {
 			case"help":
 				System.out.println(">description");
 				System.out.println(">see weapons");
-				System.out.println(">see effets");
+				System.out.println(">see effects");
 				System.out.println(">wait");
 				System.out.println(">attack {num Weapon} (0 for punch)");
 				break;
@@ -40,11 +40,11 @@ public class Fight {
 			case"360 no scope get rekt bitch":
 				monster.setLife(0);
 				break;
-			case"see effets":
-				System.out.println(player.getEffetDescription());
+			case"see effects":
+				System.out.println(player.getEffectDescription());
 				break;
 			case"wait":
-				System.out.println(monster.agit(player));
+				System.out.println(monster.action(player));
 				break;
 			case"state of health":
 				System.out.println(player.getEtat());
@@ -54,9 +54,9 @@ public class Fight {
 		if(cmd.length==2 && cmd[0].equals("attack")){
 			try{
 				int w=Integer.parseInt(cmd[1]);
-				System.out.println(monster.takeDommage(player.getWeapons(w)));
+				System.out.println(monster.takeDamage(player.getWeapons(w)));
 				if(!monster.isDead())
-					System.out.println(monster.agit(player));
+					System.out.println(monster.action(player));
 			}catch(NumberFormatException e){
 				System.out.println("attack {num Weapon} (0 for punch)");
 			}
@@ -69,7 +69,7 @@ public class Fight {
 	 */
 	public String getDescription() {
 		String s = "you're fighting against a " + monster.getName() + "\n";
-		s+=monster.getEtat();
+		s+=monster.getState();
 		return s;
 	}
 

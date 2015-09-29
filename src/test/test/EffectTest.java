@@ -24,27 +24,27 @@ public class EffectTest {
 	@Test
 	public void effetPoisonAntidote(){
 		Player player= new Player(100);
-		player.addEffet(new EffectPoison(2,4));
+		player.addEffect(new EffectPoison(2,4));
 		Assert.assertEquals(player.getLife(), 98);
-		player.agiteffets();
+		player.executeeffects();
 		Assert.assertEquals(player.getLife(), 96);
-		player.addEffet(new EffectPoison(2,4));
-		Assert.assertEquals(player.getEffets().size(), 2);
+		player.addEffect(new EffectPoison(2,4));
+		Assert.assertEquals(player.getEffects().size(), 2);
 		Assert.assertEquals(player.getLife(), 94);
-		Assert.assertTrue(player.getEffetDescription().contains("1) fait perdre quelques points de vie a chaque changement de salle (tour 2)"));
-		player.agiteffets();
+		Assert.assertTrue(player.getEffectDescription().contains("1) make you lose few hp everytime you move to another room (tour 2)"));
+		player.executeeffects();
 		Assert.assertEquals(player.getLife(), 90);
-		player.agiteffets();
-		Assert.assertEquals(player.getEffets().size(), 1);
-		player.addEffet(effectAep);
+		player.executeeffects();
+		Assert.assertEquals(player.getEffects().size(), 1);
+		player.addEffect(effectAep);
 		Assert.assertEquals(effectAep.getDescription(),"remove the effects poison");
-		Assert.assertEquals(player.getEffets().size(), 0);
-		player.addEffet(new EffectPoison(2,4));
-		player.addEffet(new EffectPoison(2,4));
-		Assert.assertEquals(player.getEffets().size(), 2);
-		player.addEffet(effectAe);
+		Assert.assertEquals(player.getEffects().size(), 0);
+		player.addEffect(new EffectPoison(2,4));
+		player.addEffect(new EffectPoison(2,4));
+		Assert.assertEquals(player.getEffects().size(), 2);
+		player.addEffect(effectAe);
 		Assert.assertEquals(effectAe.getDescription(),"remove the effects");
-		Assert.assertEquals(player.getEffets().size(), 0);
+		Assert.assertEquals(player.getEffects().size(), 0);
 	}
 	
 	@Test
@@ -61,7 +61,7 @@ public class EffectTest {
 				e1=true;
 			}else if(e.getDescription().equals("remove the effects poison")){
 				e2=true;
-			}else if(e.getDescription().contains("fait perdre quelques points de vie a chaque changement de salle (tour ")){
+			}else if(e.getDescription().contains("make you lose few hp everytime you move to another room (tour ")){
 				e3=true;
 			}
 		}

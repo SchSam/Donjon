@@ -11,7 +11,7 @@ public class EffectAntidote extends Effect {
 	}
 
 	@Override
-	public void agit(Player player) {
+	public void execute(Player player) {
 		player.removeTypeEffect(typeEffect);
 		player.removeEffect(this);
 	}

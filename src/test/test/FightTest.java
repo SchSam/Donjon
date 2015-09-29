@@ -25,7 +25,7 @@ public class FightTest {
 	@Test
 	public void testFightAttack(){
 		
-		Assert.assertEquals(f.getDescription(),"you're fighting against a testMonster\nle testMonster est en plein forme");
+		Assert.assertEquals(f.getDescription(),"you're fighting against a testMonster\nthe testMonster is in good shape");
 		f.interpretCommand("attack lighting");
 		Assert.assertFalse(f.fightIsFinished());
 		f.interpretCommand("attack 0");

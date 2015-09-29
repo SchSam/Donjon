@@ -55,11 +55,11 @@ public class ArmorTest {
 	
 	@Test
 	public void getDescription() {
-		String s="reduit "+3+" dmg\n";
-		s+="reduit "+50+"% dmg\n";
-		String s2="cette armure est insensible aux slimes\n";
-		s2+="reduit "+4+" dmg\n";
-		s2+="reduit "+50+"% dmg\n";
+		String s="reduced "+3+" dmg\n";
+		s+="reduced "+50+"% dmg\n";
+		String s2="this armor is invulnerable to slimes\n";
+		s2+="reduced "+4+" dmg\n";
+		s2+="reduced "+50+"% dmg\n";
 		Assert.assertEquals(armor.getDescription(),s);
 		Assert.assertEquals(armorslime.getDescription(),s2);
 	}
@@ -86,13 +86,13 @@ public class ArmorTest {
 		Player player = new Player(100);
 		player.addArmor(armor);
 		player.addArmor(armorslime);
-		Assert.assertFalse(player.getArmorDescription().contains("(equipe)"));
+		Assert.assertFalse(player.getArmorDescription().contains("(equip)"));
 		Assert.assertEquals(player.getArmors().size(), 2);
-		Assert.assertEquals(player.equipe(0),"equipe armor n°1");
-		Assert.assertTrue(player.getArmorDescription().contains("(equipe)"));
+		Assert.assertEquals(player.equip(0),"equip armor number 1");
+		Assert.assertTrue(player.getArmorDescription().contains("(equip)"));
 		Assert.assertEquals(player.getArmor(), armor);
-		Assert.assertEquals(player.equipe(1),"equipe armor n°2");
-		Assert.assertTrue(player.getArmorDescription().contains("(equipe)"));
+		Assert.assertEquals(player.equip(1),"equip armor number 2");
+		Assert.assertTrue(player.getArmorDescription().contains("(equip)"));
 		Assert.assertEquals(player.getArmor(), armorslime);
 		
 	}

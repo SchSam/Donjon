@@ -33,7 +33,7 @@ public class Furniture {
 	 * @param dungeon
 	 * @return interraction with furniture
 	 */
-	public String agit(Dungeon dungeon){
+	public String interact(Dungeon dungeon){
 		return description;
 	}
 	

@@ -32,9 +32,9 @@ public class Wardrobe extends Furniture {
 	}
 	
 	@Override
-	public String agit(Dungeon dungeon){
+	public String interact(Dungeon dungeon){
 		if(isOpen)
-			return super.agit(dungeon);
+			return super.interact(dungeon);
 		
 		String s="";
 		Random r=new Random();
@@ -52,27 +52,27 @@ public class Wardrobe extends Furniture {
 				break;
 			case 2:
 				s="It is a trap !";
-				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(GeneratorDungeon.numEtage*3));
+				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(GeneratorDungeon.numFloor*3));
 				break;
 			case 3:
-				s="There is a weapons in this wardrobe";
-				dungeon.getPlayer().addWeapon(WeaponFactory.getWeapon(GeneratorDungeon.numEtage));
+				s="There is weapons in this wardrobe";
+				dungeon.getPlayer().addWeapon(WeaponFactory.getWeapon(GeneratorDungeon.numFloor));
 				break;
 			case 4:
-				s="There is a potions in this wardrobe";
-				dungeon.getPlayer().addPotion(PotionFactory.getPotion(GeneratorDungeon.numEtage));
+				s="There is potions in this wardrobe";
+				dungeon.getPlayer().addPotion(PotionFactory.getPotion(GeneratorDungeon.numFloor));
 				break;
 			case 5:
-				s="There is a effect in this wardrobe";
-				dungeon.getPlayer().addEffet(EffectFactory.getEffet(GeneratorDungeon.numEtage));
+				s="There is an effect in this wardrobe";
+				dungeon.getPlayer().addEffect(EffectFactory.getEffet(GeneratorDungeon.numFloor));
 				break;
 			case 6:
-				s="There is a armor in this wardrobe";
-				dungeon.getPlayer().addArmor(ArmorFactory.getArmor(GeneratorDungeon.numEtage));
+				s="There is an armor in this wardrobe";
+				dungeon.getPlayer().addArmor(ArmorFactory.getArmor(GeneratorDungeon.numFloor));
 				break;
 			case 7:
 				s="There is a monster in this wardrobe";
-				Monster monster=MonsterFactory.getMonster(GeneratorDungeon.numEtage);
+				Monster monster=MonsterFactory.getMonster(GeneratorDungeon.numFloor);
 				new Fight(dungeon.getPlayer(),monster).start();
 				break;
 		}

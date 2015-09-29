@@ -3,7 +3,11 @@ package room;
 import java.util.ArrayList;
 
 import dungeon.Dungeon;
-
+/**
+ * room with an enigma
+ * @author scharre
+ *
+ */
 public class RoomEnigma extends Room {
 	
 	private boolean enigmeSolved = false;
@@ -31,9 +35,9 @@ public class RoomEnigma extends Room {
 	}
 	
 	@Override
-	public ArrayList<String> getCommandes() {
+	public ArrayList<String> getCommands() {
 		if(enigmeSolved)
-			return super.getCommandes();
+			return super.getCommands();
 		
 		return enigma.getChoices();
 	}

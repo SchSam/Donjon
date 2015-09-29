@@ -1,7 +1,11 @@
 package room;
 
 import dungeon.Dungeon;
-
+/**
+ * room with a trap that makes damage at the start
+ * @author scharre
+ *
+ */
 public class RoomTrap extends Room{
 	
 	private boolean trapActivated = true ;

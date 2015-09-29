@@ -19,11 +19,16 @@ public enum Direction {
 		return direction[0];
 	}
 	
-	public String getContraire(){
+	public String getOpposite(){
 		return direction[1];
 	}
 	
-	public static String getContraire(String s){
+	/**
+	 * 
+	 * @param direction
+	 * @return the opposite parameter direction
+	 */
+	public static String getOpposite(String s){
 		if(s.equals("go to wardrobe")){
 			return "go to wardrobe";
 		}else if(s.equals("go to the hatch under Carpet")){
@@ -32,12 +37,17 @@ public enum Direction {
 		
 		for(Direction d : values())
 			if(d.getDirection().equals(s))
-				return d.getContraire();
+				return d.getOpposite();
 		
 		return s;
 		
 	}
 	
+	/**
+	 * 
+	 * @param i
+	 * @return direction i
+	 */
 	public static String getDirection(int i){
 		return Direction.values()[i].getDirection();
 	}

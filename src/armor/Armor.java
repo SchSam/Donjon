@@ -47,7 +47,7 @@ public class Armor {
 	 * @return the damage inflicted, after the reduction by the armor.
 	 */
 	public int getDamage(Monster monster) {
-		double dmg = monster.getForce();
+		double dmg = monster.getStrength();
 		dmg -= damageReduction;
 		dmg -= dmg*damagePercentReduction;
 		
@@ -71,8 +71,8 @@ public class Armor {
 	 * @return a string displaying the damage reduction of the armor.
 	 */
 	public String getDescription() {
-		String s="reduit "+damageReduction+" dmg\n";
-		s+="reduit "+(int)(damagePercentReduction*100)+"% dmg\n";
+		String s="reduced "+damageReduction+" dmg\n";
+		s+="reduced "+(int)(damagePercentReduction*100)+"% dmg\n";
 		return s;  
 	}
 }

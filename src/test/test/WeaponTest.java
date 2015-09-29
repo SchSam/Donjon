@@ -34,19 +34,19 @@ public class WeaponTest {
 		
 		Assert.assertTrue(weapon.getDescription().contains("name : testgun"));
 		
-		Assert.assertTrue(weapon.attack(monster).contains("le testmonstre a presque pas subit de degat :("));
+		Assert.assertTrue(weapon.attack(monster).contains("the testmonstre almost took no dammage :("));
 		Assert.assertEquals(monster.getLife(),100-20);
 		
-		Assert.assertTrue(weapon.attack(monster2).contains("le testmonstre2 a pris quelque degat :|"));
+		Assert.assertTrue(weapon.attack(monster2).contains("the testmonstre2 took few dammages :|"));
 		Assert.assertEquals(monster2.getLife(),60-20);
 		
-		Assert.assertTrue(weapon.attack(monster3).contains("le testmonstre3 a pris la sauce :)"));
+		Assert.assertTrue(weapon.attack(monster3).contains("the testmonstre3 got rekt :)"));
 		Assert.assertEquals(monster3.getLife(),30-20);
 		
 		Assert.assertTrue(weapon.attack(monster).contains("testmonstre take 20 dmg"));
 		Assert.assertEquals(monster.getLife(),100-20-20);
 		
-		Assert.assertEquals(weaponEmply.attack(monster),"votre testgun n'as plus de mun test");
+		Assert.assertEquals(weaponEmply.attack(monster),"your testgun has no mun left");
 		Assert.assertEquals(monster.getLife(),100-20-20);
 	}
 	

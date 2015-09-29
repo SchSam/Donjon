@@ -13,32 +13,42 @@ public class Dungeon {
 	private final Scanner scanner = new Scanner(System.in);
 	private Player player;
 
+	/**
+	 * Initializing the dungeon
+	 */
 	public void initDungeon(){
 		player=new Player(100);
-		GeneratorDungeon.numEtage=0;
-		this.enterInRoom(GeneratorDungeon.genereNewStage());
+		GeneratorDungeon.numFloor=0;
+		this.enterInRoom(GeneratorDungeon.generateNewStage());
 	}
 	
 	public Room getCurrentRoom() {
 		return currentRoom;
 	}
-	
+	/**
+	 * function that makes the player enter in a room
+	 * @param room
+	 */
 	public void enterInRoom(Room room) {
-		player.agiteffets();
+		player.executeeffects();
 		this.currentRoom = room;
 		System.out.println(currentRoom.enterTheRoom(this));
 	}
 
+	/**
+	 * interpret the command that the player write
+	 * @param command
+	 */
 	public void interpretCommand(String command) {
 		switch(command){
 			case"help":
 				System.out.println(">description");
 				System.out.println(">see weapons");
 				System.out.println(">see armors");
-				System.out.println(">see effets");
+				System.out.println(">see effects");
 				System.out.println(">see potions");
 				System.out.println(">use {num potions}");
-				System.out.println(">equipe {num armors}");
+				System.out.println(">equip {num armors}");
 				System.out.println(">state of health");
 				return;
 			case"description":
@@ -50,8 +60,8 @@ public class Dungeon {
 			case"see armors":
 				System.out.println(player.getArmorDescription());
 				return;
-			case"see effets":
-				System.out.println(player.getEffetDescription());
+			case"see effects":
+				System.out.println(player.getEffectDescription());
 				return;
 			case"see potions":
 				System.out.println(player.getPotionDescription());
@@ -63,14 +73,14 @@ public class Dungeon {
 		
 		String[] cmd=command.split(" ");
 		
-		if(cmd.length==2 && cmd[0].equals("equipe")){
+		if(cmd.length==2 && cmd[0].equals("equip")){
 			
 			try{
 				int w=Integer.parseInt(cmd[1]);
 				if(w>0)
-					System.out.println(player.equipe(w-1));
+					System.out.println(player.equip(w-1));
 			}catch(NumberFormatException e){
-				System.out.println("equipe {num armor}");
+				System.out.println("equip {num armor}");
 			}
 			
 		}else if(cmd.length==2 && cmd[0].equals("use")){
@@ -92,6 +102,9 @@ public class Dungeon {
 		
 	}
 
+	/**
+	 * main function that ask the player for a command
+	 */
 	public void start() {
 		initDungeon();
 		String line ="";
@@ -99,6 +112,7 @@ public class Dungeon {
 			line = scanner.nextLine();
 			interpretCommand(line);
 		} while (!player.isDead());
+		System.out.println("you are dead, you have survived "+GeneratorDungeon.numFloor+" floor(s)");
 	}
 
 	public Player getPlayer() {

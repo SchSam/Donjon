@@ -5,24 +5,34 @@ import player.Player;
 
 public class Potion {
 
-	private Effect effet;
+	private Effect effect;
 	private String name;
 	
-	public Potion(Effect effet,String name) {
-		this.effet = effet;
+	public Potion(Effect effect,String name) {
+		this.effect = effect;
 		this.name = name;
 	}
 	
+	/**
+	 * 
+	 * @return name of the potion
+	 */
 	public String getName() {
 		return name;
 	}
-
+	/**
+	 * 
+	 * @return description of the potion
+	 */
 	public String getDescription() {
-		return "potion who "+ effet.getDescription();
+		return "potion who "+ effect.getDescription();
 	}
-
-	public void agit(Player player) {
-		player.addEffet(effet);
+	/**
+	 * 
+	 * @param add effect to the player
+	 */
+	public void proc(Player player) {
+		player.addEffect(effect);
 		player.removePotion(this);
 	}
 

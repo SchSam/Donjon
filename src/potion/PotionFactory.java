@@ -27,7 +27,7 @@ public class PotionFactory {
 			case 1:
 				return new Potion(EffectFactory.getEffectAntidoteEffectPoison(),"antidote");
 			case 2:
-				return new Potion(EffectFactory.getEffectAntidoteEffet(),"antidote");
+				return new Potion(EffectFactory.getEffectAntidoteEffect(),"antidote");
 		}
 		return null;
 	}

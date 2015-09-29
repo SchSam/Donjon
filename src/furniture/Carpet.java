@@ -23,9 +23,9 @@ public class Carpet extends Furniture {
 		this.isOpen=isOpen;
 	}
 	@Override
-	public String agit(Dungeon dungeon){
+	public String interact(Dungeon dungeon){
 		if(isOpen)
-			return super.agit(dungeon);
+			return super.interact(dungeon);
 		
 		String s="";
 		Random r=new Random();
@@ -33,14 +33,14 @@ public class Carpet extends Furniture {
 		switch(x){
 			case 0:
 				dungeon.getCurrentRoom().setDoors("go to the hatch under Carpet", null);
-				s="There is a hidden door under this carpet";
+				s="there is a hidden door under this carpet";
 				break;
 			case 1:
 				s="there is nothing under this carpet";
 				break;
 			case 2:
-				s="It is a trap !";
-				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(GeneratorDungeon.numEtage*3));
+				s="it is a trap !";
+				dungeon.getPlayer().setLife(dungeon.getPlayer().getLife()-r.nextInt(GeneratorDungeon.numFloor*3));
 				break;
 		}
 		isOpen=true;

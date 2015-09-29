@@ -22,24 +22,24 @@ public class MonsterTest {
 	@Before
 	public void initMonsterTest() {
 		player =new Player(100);
-		weapon = new Weapon("sword", 0, "None", 10, "coupant");
+		weapon = new Weapon("sword", 0, "None", 10, "cutting");
 		weapon2 = new Weapon("test", 0, "None", 10, "test");
 		monster = new Slime("slime",30,5);
 	}
 
 	@Test
 	public void testMonster(){
-		monster.takeDommage(weapon);
+		monster.takeDamage(weapon);
 		Assert.assertEquals(monster.getLife(),30);
-		monster.takeDommage(weapon2);
+		monster.takeDamage(weapon2);
 		Assert.assertEquals(monster.getLife(),30-10);
-		Assert.assertEquals(monster.agit(player),"le slime vous attaque");
+		Assert.assertEquals(monster.action(player),"the slime attacks you");
 		Assert.assertEquals(player.getLife(),100-5);
-		Assert.assertEquals(monster.getEtat(),"le slime est en plein forme");
-		monster.takeDommage(weapon2);
-		Assert.assertEquals(monster.getEtat(),"le slime commence a faiblir");
-		monster.takeDommage(weapon2);
-		Assert.assertEquals(monster.getEtat(),"le slime est faible");
+		Assert.assertEquals(monster.getState(),"the slime is in good shape");
+		monster.takeDamage(weapon2);
+		Assert.assertEquals(monster.getState(),"the slime start being weak");
+		monster.takeDamage(weapon2);
+		Assert.assertEquals(monster.getState(),"the slime is weak");
 	}
 	
 	@Test

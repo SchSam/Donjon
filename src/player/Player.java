@@ -94,6 +94,7 @@ public class Player {
 	public ArrayList<Potion> getPotions() {
 		return potions;
 	}
+	
 	public void addPotion(Potion p) {
 		System.out.println(p.getDescription());
 		potions.add(p);
@@ -104,7 +105,7 @@ public class Player {
 	}
 	
 	public void addArmor(Armor a) {
-		System.out.println(a.getDescription());
+		System.out.println("you have : \n"+a.getDescription());
 		armors.add(a);
 	}
 	public void getDommage(Monster monster) {
@@ -118,47 +119,49 @@ public class Player {
 	public boolean isDead(){
 		return life<=0;
 	}
-	public void getWeaponsDescription() {
-		System.out.println("voici mes armes : ");
+	public String getWeaponsDescription() {
+		String s="voici mes armes : ";
 		int i=0;
 		for(Weapon w:weapons){
 			i++;
-			System.out.println(i+") "+w.getDescription());
+			s+=i+") "+w.getDescription();
 		}
-		
+		return s;
 	}
 	
-	public void getEffetDescription() {
-		System.out.println("voici mes effet : ");
+	public String getEffetDescription() {
+		String s="voici mes effet : ";
 		int i=0;
 		for(Effet e:effets){
 			i++;
-			System.out.println(i+") "+e.getDescription());
+			s+=i+") "+e.getDescription();
 		}
+		return s;
 		
 	}
 	
-	public void getPotionDescription() {
-		System.out.println("voici mes Potions : ");
+	public String getPotionDescription() {
+		String s="voici mes Potions : ";
 		int i=0;
 		for(Potion p:potions){
 			i++;
-			System.out.println(i+") "+p.getDescription());
+			s+=i+") "+p.getDescription();
 		}
-		
+		return s;
 	}
 	
-	public void getArmorDescription() {
-		System.out.println("voici mes Armors : ");
+	public String getArmorDescription() {
+		String s="voici mes Armors : ";
 		int i=0;
 		for(Armor a:armors){
 			i++;
 			if(a.equals(armor)){
-				System.out.println(i+") (equipe)"+a.getDescription());
+				s+=i+") (equipe)"+a.getDescription();
 			}else{
-				System.out.println(i+") "+a.getDescription());
+				s+=i+") "+a.getDescription();
 			}
 		}
+		return s;
 	}
 	public int getMaxlife() {
 		return maxlife;
@@ -172,20 +175,20 @@ public class Player {
 	}
 
 	public String equipe(int w) {
-		if(weapons.size()>=w && w>=0){
+		if(armors.size()>w && w>=0){
 			armor=armors.get(w);
-			return "equipe armor n°"+(w);
+			return "equipe armor n°"+(w+1);
 		}else{
-			return "no armor n°"+(w);
+			return "no armor n°"+(w+1);
 		}
 	}
 
 	public String usePotion(int w) {
-		if(potions.size()>=w && w>=0){
+		if(potions.size()>w && w>=0){
 			potions.get(w).agit(this);
-			return "potion n°"+(w)+" use";
+			return "potion n°"+(w+1)+" use";
 		}else{
-			return "no potion n°"+(w);
+			return "no potion n°"+(w+1);
 		}
 	}
 

@@ -16,6 +16,6 @@ public class ArmorSlime extends Armor {
 	}
 	
 	public String getDescription(){
-		return "cette armure est insensible aux slimes \n"+super.getDescription();
+		return "cette armure est insensible aux slimes\n"+super.getDescription();
 	}
 }

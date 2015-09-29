@@ -33,7 +33,7 @@ public class Armor {
 
 	public String getDescription() {
 		String s="reduit "+reductiondmg+" dmg\n";
-		s+="reduit "+reductionPourcentDmg+"% dmg\n";
+		s+="reduit "+(int)(reductionPourcentDmg*100)+"% dmg\n";
 		return s;  
 	}
 }

@@ -18,10 +18,14 @@ public class EffetAntidote extends Effet {
 
 	@Override
 	public String getDescription() {
-		return "enleve les effet " + typeEffet.getName();
+		try{
+			return "enleve les effets " + typeEffet.newInstance().getName();
+		}catch(Exception e){
+			return "enleve les effets";
+		}
 	}
 
-	public static String getName(){
+	public String getName(){
 		return "antidote";
 	}
 }

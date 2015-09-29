@@ -18,7 +18,7 @@ public class Potion {
 	}
 
 	public String getDescription() {
-		return "potion with "+ effet.getDescription();
+		return "potion who "+ effet.getDescription();
 	}
 
 	public void agit(Player player) {

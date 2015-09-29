@@ -12,7 +12,7 @@ public class Weapon {
 	private int power;
 	private String typeWeapon;
 	
-	Weapon(String name, int nbAmmo, String typeAmmo, int power,String typeWeapon) {
+	public Weapon(String name, int nbAmmo, String typeAmmo, int power,String typeWeapon) {
 		this.name = name;
 		this.nbAmmo = nbAmmo;
 		this.typeAmmo = typeAmmo;
@@ -24,30 +24,17 @@ public class Weapon {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public int getNbAmmo() {
 		return nbAmmo;
-	}
-
-	public void setNbAmmo(int nbAmmo) {
-		this.nbAmmo = nbAmmo;
 	}
 
 	public String getTypeAmmo() {
 		return typeAmmo;
 	}
 
-	public void setTypeAmmo(String typeAmmo) {
-		this.typeAmmo = typeAmmo;
-	}
-
 	public int getPower() {
 		return power;
 	}
-
 	public void setPower(int power) {
 		this.power = power;
 	}
@@ -55,11 +42,6 @@ public class Weapon {
 	public String getTypeWeapon() {
 		return typeWeapon;
 	}
-
-	public void setDistance(String typeWeapon) {
-		this.typeWeapon = typeWeapon;
-	}
-	
 
 	public String attack(Monster m){
 		if(typeAmmo.equals("None")){

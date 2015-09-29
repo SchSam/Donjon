@@ -4,10 +4,14 @@ import player.Player;
 
 public class EffetPoison extends Effet {
 	
+	public static String nameClass="poison";
 	private int dmg;
 	
-	public static String getName(){
-		return "Poison";
+	public String getName(){
+		return "poison";
+	}
+	
+	public EffetPoison() {
 	}
 	
 	public EffetPoison(int dmg, int time) {
@@ -25,7 +29,7 @@ public class EffetPoison extends Effet {
 
 	@Override
 	public String getDescription() {
-		return "fait perdre quelques points de vie a chaque changement de salle";
+		return "fait perdre quelques points de vie a chaque changement de salle (tour "+getNbtime()+")";
 	}
 
 }

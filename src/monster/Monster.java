@@ -17,20 +17,24 @@ public class Monster {
 		this.maxlife = life;
 		this.force = force;
 		this.name = name;
+		this.typeMonster = "None";
 	}
 	
 	public String takeDommage(Weapon weapon){
+		
+		String s=name + " take "+weapon.getPower()+" dmg !\n";
+		
 		life-=weapon.getPower();
 		if(life<=0){
-			return "le "+name+" est mort :'(";
+			return s+"le "+name+" est mort :'(";
 		}
 		
-		if (weapon.getPower()/2>life)
-			return "le "+ name + " a pris la sauce :)";
-		else if (weapon.getPower()/4>life)
-			return "le "+ name + " pris quelque degat :|";
+		if (weapon.getPower()*2>maxlife)
+			return s+"le "+ name + " a pris la sauce :)";
+		else if (weapon.getPower()*4>maxlife)
+			return s+"le "+ name + " a pris quelque degat :|";
 		
-		return "le "+ name + " a presque pas subit de degat :(";
+		return s+"le "+ name + " a presque pas subit de degat :(";
 	
 	}
 	

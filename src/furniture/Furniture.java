@@ -14,8 +14,6 @@ public class Furniture {
 		this.description = description;
 	}
 
-
-
 	public String getCmd() {
 		return cmd;
 	}

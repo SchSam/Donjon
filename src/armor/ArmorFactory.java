@@ -10,9 +10,9 @@ public class ArmorFactory {
 		int r=new Random().nextInt(2); 
 		switch(r){
 		case 0:
-			return new Armor("iron armor",new Random().nextInt(level*3),Math.min(50,new Random().nextInt(level*3)));
+			return new Armor("iron armor",new Random().nextInt(level*3),Math.min(50,new Random().nextInt(level*3)/100.0));
 		case 1:
-			return new ArmorSlime("slime armor",new Random().nextInt(level*3),Math.min(50,new Random().nextInt(level*3)));
+			return new ArmorSlime("slime armor",new Random().nextInt(level*3),Math.min(50,new Random().nextInt(level*3)/100.0));
 		}
 		return null;
 		

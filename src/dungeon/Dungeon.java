@@ -106,9 +106,11 @@ public class Dungeon {
 	 * main function that ask the player for a command
 	 */
 	public void start() {
+		System.out.println("Command 'help' when you don't know what to do\n");
 		initDungeon();
 		String line ="";
 		do {
+			System.out.print("-> ");
 			line = scanner.nextLine();
 			interpretCommand(line);
 		} while (!player.isDead());
